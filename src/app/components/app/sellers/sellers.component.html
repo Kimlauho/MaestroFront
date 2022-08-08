@@ -1,0 +1,37 @@
+<h2 color="primary">Vendedores</h2>
+
+<div>
+    <button mat-raised-button color="primary" (click)="openDialog(null)">
+        <mat-icon>add_circle</mat-icon> Agregar vendedor
+    </button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col"># Documento</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let seller of sellers">
+            <td>{{seller.code}}</td>
+            <td>{{seller.name}}</td>
+            <td>{{seller.lastName}}</td>
+            <td>{{seller.document}}</td>
+            <td>{{seller.nameCity}}</td>
+            <td>
+                <button mat-icon-button aria-label="Edit info" color="primary" (click)="openDialog(seller)">
+                    <mat-icon>edit_note</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="Delete info" color="warn" (click)="deleteSeller(seller.code)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

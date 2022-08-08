@@ -1,0 +1,49 @@
+<mat-drawer-container class="mat-container" [hasBackdrop]="false">
+
+    <mat-drawer class="nav" #drawer mode="side" opened>
+
+        <mat-nav-list>
+            <div mat-subheader>Items</div>
+
+            <mat-list-item routerLink="" routerLinkActive="'active'">
+                <mat-icon matListIcon>home</mat-icon>
+		        <span matLine>Home</span>
+            </mat-list-item>
+
+            <mat-list-item routerLink="cities" routerLinkActive="'active'">
+                <mat-icon matListIcon>apartment</mat-icon>
+		        <span matLine>Gestionar Ciudades</span>
+            </mat-list-item>
+
+            <mat-list-item routerLink="sellers" routerLinkActive="'active'">
+                <mat-icon matListIcon>storefront</mat-icon>
+		        <span matLine>Gestionar Vendedores</span>
+            </mat-list-item>
+        </mat-nav-list>
+
+    </mat-drawer>
+
+    <mat-drawer-content>
+
+        <header>
+            <mat-toolbar color="primary">
+                <button mat-icon-button (click)="drawer.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+                <span>Maestro Front</span>
+                <span class="spacer"></span>
+                <span>
+                    <mat-icon>account_circle</mat-icon> Laura Roa
+                </span>
+            </mat-toolbar>
+        </header>
+
+        <main style="margin: 10px;" class="mat-typography">
+            <router-outlet></router-outlet>
+        </main>
+
+    </mat-drawer-content>
+
+</mat-drawer-container>
+

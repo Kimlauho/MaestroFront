@@ -1,0 +1,31 @@
+<h2 color="primary">Ciudades</h2>
+
+<div>
+    <button mat-raised-button color="primary" (click)="openDialog(null)">
+        <mat-icon>add_circle</mat-icon> Agregar ciudad
+    </button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let city of cities">
+            <td>{{city.code}}</td>
+            <td>{{city.description}}</td>
+            <td>
+                <button mat-icon-button aria-label="Edit info" color="primary" (click)="openDialog(city)">
+                    <mat-icon>edit_note</mat-icon>
+                </button>
+                <button mat-icon-button aria-label="Delete info" color="warn" (click)="deleteCity(city.code)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

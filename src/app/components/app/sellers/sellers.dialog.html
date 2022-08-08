@@ -1,0 +1,42 @@
+<h1 mat-dialog-title>{{titleModal}}</h1>
+
+<form autocomplete="off" (ngSubmit)="createEditInfo()">
+
+    <div mat-dialog-content>
+        <div class="mb-3" hidden>
+            <label for="code" class="form-label">Code</label>
+            <input type="number" class="form-control" name="code" id="code" [(ngModel)]="seller.code" >
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="name" id="name" required [(ngModel)]="seller.name">
+        </div>
+        <div class="mb-3">
+          <label for="last-name" class="form-label">Apellido</label>
+          <input type="text" class="form-control" name="last-name" id="last-name" required [(ngModel)]="seller.lastName">
+      </div>
+      <div class="mb-3">
+        <label for="document" class="form-label">Documento</label>
+        <input type="text" class="form-control" name="document" id="document" required [(ngModel)]="seller.document">
+      </div>
+      <div class="mb-3">
+        <label for="city" class="form-label">Ciudad</label>
+        <select type="text" class="form-select" name="city" id="city" (change)="selectedCity()" required [(ngModel)]="cityId">
+          <option *ngFor="let city of cities" [value]="city.code">{{ city.description }}</option>
+        </select>
+      </div>
+        <div class="alert alert-warning" role="alert" *ngIf="error">
+            {{msjError}}
+        </div>
+    </div>
+
+    <div mat-dialog-actions>
+        <button type="button" mat-button aria-label="Cancel info" color="accent" [mat-dialog-close]="false">
+            <mat-icon>close</mat-icon> Cancelar
+        </button>
+
+        <button type="submit" mat-button aria-label="Save info" color="primary">
+            <mat-icon>save</mat-icon> Guardar
+        </button>
+    </div>
+</form>
